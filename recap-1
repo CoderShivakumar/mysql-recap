@@ -1,0 +1,346 @@
+# MySQL Quick Revision Notes
+
+## 1. SELECT
+
+Used to retrieve data from a table.
+
+```sql
+SELECT * FROM Employee;
+SELECT name, salary FROM Employee;
+```
+
+---
+
+## 2. WHERE
+
+Filters rows based on a condition.
+
+```sql
+SELECT * FROM Employee
+WHERE salary > 50000;
+```
+
+Common operators:
+
+* `=` Equal
+* `>` Greater than
+* `<` Less than
+* `>=`
+* `<=`
+* `!=` or `<>` Not equal
+
+---
+
+## 3. LIKE
+
+Used for pattern matching.
+
+* `'A%'` → Starts with A
+* `'%A'` → Ends with A
+* `'%ar%'` → Contains "ar"
+* `'__a%'` → Third character is a
+
+Example:
+
+```sql
+SELECT * FROM Employee
+WHERE name LIKE 'A%';
+```
+
+---
+
+## 4. ORDER BY
+
+Sorts data.
+
+Ascending:
+
+```sql
+SELECT * FROM Employee
+ORDER BY salary ASC;
+```
+
+Descending:
+
+```sql
+SELECT * FROM Employee
+ORDER BY salary DESC;
+```
+
+---
+
+## 5. LIMIT
+
+Returns only a specified number of rows.
+
+```sql
+SELECT * FROM Employee
+LIMIT 5;
+```
+
+---
+
+## 6. OFFSET
+
+Skips rows before returning results.
+
+```sql
+SELECT * FROM Employee
+LIMIT 5 OFFSET 2;
+```
+
+---
+
+## 7. AND
+
+All conditions must be true.
+
+```sql
+SELECT *
+FROM Employee
+WHERE department='IT'
+AND salary>50000;
+```
+
+---
+
+## 8. OR
+
+At least one condition must be true.
+
+```sql
+SELECT *
+FROM Employee
+WHERE department='IT'
+OR department='HR';
+```
+
+---
+
+## 9. NOT
+
+Negates a condition.
+
+```sql
+SELECT *
+FROM Employee
+WHERE NOT city='Chennai';
+```
+
+---
+
+## 10. IN
+
+Checks multiple values.
+
+```sql
+SELECT *
+FROM Employee
+WHERE department IN ('IT','HR','Finance');
+```
+
+Equivalent to multiple OR conditions.
+
+---
+
+## 11. BETWEEN
+
+Checks whether a value lies within a range.
+
+```sql
+SELECT *
+FROM Employee
+WHERE salary BETWEEN 40000 AND 60000;
+```
+
+Equivalent to:
+
+```sql
+salary >= 40000 AND salary <= 60000
+```
+
+---
+
+# Aggregate Functions
+
+## 12. COUNT()
+
+Counts rows.
+
+```sql
+SELECT COUNT(*) FROM Employee;
+```
+
+With condition:
+
+```sql
+SELECT COUNT(*)
+FROM Employee
+WHERE department='IT';
+```
+
+---
+
+## 13. SUM()
+
+Calculates total.
+
+```sql
+SELECT SUM(salary)
+FROM Employee;
+```
+
+---
+
+## 14. AVG()
+
+Calculates average.
+
+```sql
+SELECT AVG(salary)
+FROM Employee;
+```
+
+---
+
+## 15. MIN()
+
+Finds the smallest value.
+
+```sql
+SELECT MIN(salary)
+FROM Employee;
+```
+
+---
+
+## 16. MAX()
+
+Finds the largest value.
+
+```sql
+SELECT MAX(salary)
+FROM Employee;
+```
+
+---
+
+# Query Execution Order
+
+1. FROM
+2. WHERE
+3. GROUP BY
+4. HAVING
+5. SELECT
+6. ORDER BY
+7. LIMIT
+8. OFFSET
+
+---
+
+# Interview Tips
+
+### Top N Records
+
+Always use:
+
+```sql
+ORDER BY column_name DESC
+LIMIT N;
+```
+
+Example:
+
+```sql
+SELECT name, salary
+FROM Employee
+ORDER BY salary DESC
+LIMIT 3;
+```
+
+---
+
+### COUNT(*) vs COUNT(column)
+
+`COUNT(*)`
+
+* Counts all rows.
+
+`COUNT(column)`
+
+* Counts only non-NULL values in that column.
+
+---
+
+### BETWEEN
+
+Inclusive of both limits.
+
+```sql
+BETWEEN 10 AND 20
+```
+
+means
+
+```sql
+>=10 AND <=20
+```
+
+---
+
+### IN
+
+Cleaner alternative to multiple OR conditions.
+
+```sql
+department IN ('IT','HR')
+```
+
+instead of
+
+```sql
+department='IT'
+OR department='HR'
+```
+
+---
+
+# Topics Completed ✅
+
+* SELECT
+* WHERE
+* Comparison Operators
+* LIKE
+* ORDER BY
+* LIMIT
+* OFFSET
+* AND
+* OR
+* NOT
+* IN
+* BETWEEN
+* COUNT
+* SUM
+* AVG
+* MIN
+* MAX
+
+# Remaining Topics
+
+1. GROUP BY
+2. HAVING
+3. UPDATE
+4. DELETE
+5. Constraints
+
+   * PRIMARY KEY
+   * FOREIGN KEY
+   * UNIQUE
+   * NOT NULL
+   * DEFAULT
+   * AUTO_INCREMENT
+6. JOINs
+
+   * INNER JOIN
+   * LEFT JOIN
+   * RIGHT JOIN
