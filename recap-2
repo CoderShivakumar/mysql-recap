@@ -1,0 +1,112 @@
+Interview Definitions
+INNER JOIN
+
+Returns only matching rows from both tables.
+
+LEFT JOIN
+
+Returns all rows from the left table and matching rows from the right table.
+
+RIGHT JOIN
+
+Returns all rows from the right table and matching rows from the left table.
+
+PRIMARY KEY
+
+Uniquely identifies each row in a table.
+
+FOREIGN KEY
+
+References the primary key of another table to establish a relationship
+MySQL Day Recap
+1. CREATE TABLE
+
+Syntax:
+
+CREATE TABLE Employee(
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    salary INT
+);
+2. Constraints
+PRIMARY KEY
+Uniquely identifies each row.
+Cannot be NULL.
+FOREIGN KEY
+References the primary key of another table.
+Creates a relationship between tables.
+
+Example:
+
+dept_id INT,
+FOREIGN KEY (dept_id)
+REFERENCES Department(dept_id)
+NOT NULL
+Value is mandatory.
+UNIQUE
+Duplicate values are not allowed.
+DEFAULT
+Uses a predefined value if no value is provided.
+AUTO_INCREMENT
+Automatically generates sequential IDs.
+3. INNER JOIN
+Definition
+
+Returns only the rows that have matching values in both tables.
+
+Syntax:
+
+SELECT columns
+FROM Table1
+INNER JOIN Table2
+ON Table1.id = Table2.id;
+
+Example:
+
+SELECT c.name, s.salary
+FROM Cricket c
+INNER JOIN Salary s
+ON c.id = s.cricket_id;
+4. LEFT JOIN
+Definition
+
+Returns all rows from the left table and matching rows from the right table.
+
+If no match exists:
+
+NULL
+
+Example:
+
+SELECT subject_name, score
+FROM Subject
+LEFT JOIN Score
+ON Subject.subject_id = Score.score_id;
+
+Example Output
+
+Subject	Score
+Maths	500
+Science	600
+Telugu	NULL
+5. RIGHT JOIN
+Definition
+
+Returns all rows from the right table and matching rows from the left table.
+
+Example:
+
+SELECT subject_name, score
+FROM Subject
+RIGHT JOIN Score
+ON Subject.subject_id = Score.score_id;
+
+Example Output
+
+Subject	Score
+Maths	500
+Science	600
+NULL	1500
+JOIN Comparison
+INNER JOIN	LEFT JOIN	RIGHT JOIN
+Only matching rows	All left rows + matching right rows	All right rows + matching left rows
