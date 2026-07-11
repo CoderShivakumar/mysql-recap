@@ -1,0 +1,17 @@
+11-07-2026
+1. Find all employees whose salary is greater than ₹50,000.
+select emp_name from employees where salary>50000;	
+2. Display employees whose names start with 'A'.
+select emp_name from employees where emp_name like 'a%';	
+3. Count the total number of employees.
+select count(*) from employees ;	
+4. Find the highest and lowest salary.
+select max(salary),min(salary) from employees ;	
+5. List employees in descending order of salary.
+select emp_name from employees order by salary desc ;	
+
+✔ WHERE
+✔ LIKE
+✔ COUNT
+✔ MAX/MIN
+✔ ORDER BY
