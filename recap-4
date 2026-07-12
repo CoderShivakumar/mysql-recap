@@ -1,0 +1,24 @@
+6. Find employees whose salary is between ₹50,000 and ₹80,000.
+7. Display employees who belong to the IT department.
+8. Display employees who work in either HR or Finance department.
+9. Find employees whose salary is exactly ₹70,000.
+10. Display employees whose names end with 'a'.
+11. Display employees whose names contain the letter 'a'.
+12. Find all employees except those in the Sales department.
+13. Display the top 5 highest-paid employees.
+14. Display employees whose salary is not equal to ₹50,000.
+15. Display employees ordered by:
+Department (ascending)
+Salary (descending)
+select name as employees from employee where salary between 50000 and 80000;
+select name as employees from employee where department='IT';
+select name as employee from employee where department='HR' OR department='Finance';
+select name as employee from employee where salary=70000;
+select name as employee from employee where name like '%a';
+select name as employee from employee where name like '%a%';
+select name as employee from employee where department!='Sales';
+select name as employee from employee order by salary desc limit 5;
+select name as employee from employee where salary!=50000;
+SELECT name, department, salary
+FROM employee
+ORDER BY department ASC, salary DESC;
